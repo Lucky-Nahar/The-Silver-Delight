@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Silver Delight - Premium Silver Jewelry</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2tu6pJg3lH2Q6QbA4Q1r5A6z5Q+1r5A6z5Q+1r5A6z5Q+1r5A=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j6kG6lF6Q1r5A6z5Q+1r5A6z5Q+1r5A6z5Q+1r5A=" crossorigin=""></script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/a7c4a4a6-28ca-44c5-9777-9962db945923.png" alt="The Silver Delight" class="nav__logo">
+                <span class="nav__title">The Silver Delight</span>
+            </div>
+            
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__list">
+                    <li class="nav__item nav__theme-toggle-bar">
+                        <button class="theme-toggle-bar" id="themeToggleBar" aria-label="Toggle theme">
+                            <span class="theme-toggle-bar__icon theme-toggle-bar__icon--light">☀️</span>
+                            <span class="theme-toggle-bar__slider"></span>
+                            <span class="theme-toggle-bar__icon theme-toggle-bar__icon--dark">🌙</span>
+                        </button>
+                    </li>
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
+                    <li class="nav__item"><a href="#shop" class="nav__link">Shop</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__slider">
+            <div class="hero__slide active" style="background: linear-gradient(120deg, #f8fafc 0%, #b6e0fe 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Modern Silver Rings</h1>
+                    <p class="hero__subtitle">Discover our exquisite handcrafted silver rings</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/ring.jpg" alt="Silver Ring">
+                    <img class="hero__image-multi" src="assets/Swipable images/ring (3).jpg" alt="Silver Ring 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #fceabb 0%, #f8b500 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Elegant Silver Pendants</h1>
+                    <p class="hero__subtitle">Spiritual and elegant silver pendants for every occasion</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/pandent.jpg" alt="Silver Pendant">
+                    <img class="hero__image-multi" src="assets/Swipable images/pendent.jpg" alt="Silver Pendant 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Stunning Silver Earrings</h1>
+                    <p class="hero__subtitle">Where elegance meets craftsmanship</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/earrings.jpg" alt="Silver Earrings">
+                    <img class="hero__image-multi" src="assets/Swipable images/Earings.jpg" alt="Silver Earrings 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #f8ffae 0%, #43c6ac 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Chic Silver Bracelets</h1>
+                    <p class="hero__subtitle">Sophisticated bracelets for every style</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/bracelets.jpg" alt="Silver Bracelet">
+                    <img class="hero__image-multi" src="assets/Swipable images/Bracelet.jpg" alt="Silver Bracelet 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Trendy Silver Anklets</h1>
+                    <p class="hero__subtitle">Add a touch of elegance to your step</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/Anklet.jpg" alt="Silver Anklet">
+                    <img class="hero__image-multi" src="assets/Swipable images/anklet (2).jpg" alt="Silver Anklet 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Classic Silver Chains</h1>
+                    <p class="hero__subtitle">Timeless chains for every occasion</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/Chain.jpg" alt="Silver Chain">
+                    <img class="hero__image-multi" src="assets/Swipable images/chain (2).jpg" alt="Silver Chain 2">
+                </div>
+            </div>
+            <div class="hero__slide" style="background: linear-gradient(120deg, #f7971e 0%, #ffd200 100%);">
+                <div class="hero__content">
+                    <h1 class="hero__title">Divine Silver Idols</h1>
+                    <p class="hero__subtitle">Bless your home with spiritual silver art</p>
+                </div>
+                <div class="hero__images-row">
+                    <img class="hero__image-multi" src="assets/Swipable images/goddess.jpg" alt="Silver Goddess">
+                    <img class="hero__image-multi" src="assets/Swipable images/god.JPG" alt="Silver God">
+                </div>
+            </div>
+        </div>
+        <div class="hero__indicators">
+            <button class="hero__indicator active" data-slide="0" title="Go to slide 1"></button>
+            <button class="hero__indicator" data-slide="1" title="Go to slide 2"></button>
+            <button class="hero__indicator" data-slide="2" title="Go to slide 3"></button>
+            <button class="hero__indicator" data-slide="3" title="Go to slide 4"></button>
+            <button class="hero__indicator" data-slide="4" title="Go to slide 5"></button>
+            <button class="hero__indicator" data-slide="5" title="Go to slide 6"></button>
+            <button class="hero__indicator" data-slide="6" title="Go to slide 7"></button>
+        </div>
+    </section>
+
+    <!-- Featured Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section__title">Featured Categories</h2>
+            <div class="categories__wrapper">
+                <button class="categories__nav categories__nav--prev" id="categoriesPrev" aria-label="Previous">‹</button>
+                <div class="categories__container" id="categoriesContainer">
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/ring.jpg" alt="Rings">
+                        <h3 class="category__title">Rings</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/earrings.jpg" alt="Earrings">
+                        <h3 class="category__title">Earrings</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/Braclets.jpg" alt="Bracelets">
+                        <h3 class="category__title">Bracelets</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/pandent.jpg" alt="Pendants">
+                        <h3 class="category__title">Pendants</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/Chain.jpg" alt="Chains">
+                        <h3 class="category__title">Chains</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/Anklets.jpg" alt="Anklets">
+                        <h3 class="category__title">Anklets</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/Utensils.jpg" alt="Utensils">
+                        <h3 class="category__title">Utensils</h3>
+                    </div>
+                    <div class="category__card">
+                        <img class="category__img" src="assets/category images/goddess.jpg" alt="Religious">
+                        <h3 class="category__title">Religious</h3>
+                    </div>
+                </div>
+                <button class="categories__nav categories__nav--next" id="categoriesNext" aria-label="Next">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find My Store Section -->
+    <section class="stores" id="contact">
+        <div class="container">
+            <h2 class="section__title">Find My Store</h2>
+            <div class="stores__content">
+                <div class="stores__locations">
+                    <div class="store__card card">
+                        <div class="card__body">
+                            <h3 class="store__name">The Silver Delight - Bahadurgarh</h3>
+                            <p class="store__address">Shop No 5, Nahara - Nahari Rd, Model Town, Bahadurgarh, Haryana 124507</p>
+                            <p class="store__phone">📞 +91 9728998849</p>
+                            <p class="store__hours">🕒 Mon-Sun: 10AM-8PM</p>
+                        </div>
+                    </div>
+                    <div class="store__card card">
+                        <div class="card__body">
+                            <h3 class="store__name">The Silver Delight - Panipat</h3>
+                            <p class="store__address">Shop No. 3, 595 -L, Ring Rd, opp. to RedTape Showroom, Model Town, Panipat, Haryana 132103</p>
+                            <p class="store__phone">📞 +91 9917344167</p>
+                            <p class="store__hours">🕒 Mon-Sun: 10AM-8PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map__container">
+                    <div class="map__placeholder">
+                        <div class="map__label">Interactive Map View</div>
+                        <iframe
+                            width="100%"
+                            height="350"
+                            style="border:0; border-radius: 16px;"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps?q=28.6916,76.9352&z=13&output=embed"
+                        ></iframe>
+                        <div style="margin-top: 12px; text-align: center;">
+                            <a href="https://maps.app.goo.gl/JDT4sGYVECSsSXhr7" target="_blank" rel="noopener" class="btn" style="margin: 0 8px;">Directions to Bahadurgarh</a>
+                            <a href="https://maps.app.goo.gl/JDT4sGYVECSsSXhr7" target="_blank" rel="noopener" class="btn" style="margin: 0 8px;">Directions to Panipat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/a7c4a4a6-28ca-44c5-9777-9962db945923.png" alt="The Silver Delight" class="footer__logo">
+                    <h3 class="footer__title">The Silver Delight</h3>
+                    <p class="footer__description">Premium silver jewelry crafted with excellence</p>
+                </div>
+                <div class="footer__links">
+                    <h4 class="footer__heading">Quick Links</h4>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer__link">Terms of Service</a></li>
+                        <li><a href="#" class="footer__link">FAQ</a></li>
+                        <li><a href="#" class="footer__link">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contact">
+                    <h4 class="footer__heading">Contact Info</h4>
+                    <p>Email: info@thesilverelight.com</p>
+                    <p>Phone: +91 98765 43210</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" target="_blank">📘</a>
+                        <a href="#" class="footer__social-link" target="_blank">📷</a>
+                        <a href="#" class="footer__social-link" target="_blank">🐦</a>
+                        <a href="#" class="footer__social-link" target="_blank">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 The Silver Delight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
