@@ -278,75 +278,14 @@ function addIntersectionObserver() {
         });
     }, observerOptions);
     
-    // Observe category cards and store cards
-    const cards = document.querySelectorAll('.category__card, .store__card');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    // Observe all sections that should fade in
+    const animatedElements = document.querySelectorAll('.hero__slide, .category__card, .store__card, .section__title, .footer__content');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        observer.observe(el);
     });
-}
-
-// Enhanced map interaction
-function initMap() {
-    const mapContainer = document.querySelector('.map__placeholder');
-    if (!mapContainer) return;
-    
-    mapContainer.addEventListener('click', (e) => {
-        const rect = mapContainer.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        
-        // Calculate ripple size based on container size
-        const minDim = Math.min(rect.width, rect.height);
-        const rippleDiameter = Math.max(24, minDim * 0.2); // at least 24px, 20% of container
-        
-        // Create ripple effect
-        const ripple = document.createElement('div');
-        ripple.style.position = 'absolute';
-        ripple.style.left = `${x}%`;
-        ripple.style.top = `${y}%`;
-        ripple.style.width = `${rippleDiameter}px`;
-        ripple.style.height = `${rippleDiameter}px`;
-        ripple.style.borderRadius = '50%';
-        ripple.style.background = 'rgba(33, 128, 141, 0.3)';
-        ripple.style.transform = 'translate(-50%, -50%) scale(0)';
-        ripple.style.animation = 'mapRipple 0.6s ease-out forwards';
-        ripple.style.pointerEvents = 'none';
-        
-        mapContainer.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-    
-    // Add CSS for map ripple animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes mapRipple {
-            to {
-                transform: translate(-50%, -50%) scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Footer fade-in on scroll
-function observeFooterFadeIn() {
-    const footer = document.querySelector('.footer');
-    if (!footer) return;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                footer.classList.add('footer--visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    observer.observe(footer);
 }
 
 // Initialize app when DOM is loaded
@@ -357,8 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add additional effects
     addScrollEffect();
     addIntersectionObserver();
-    initMap();
-    observeFooterFadeIn();
     
     // Add loading animation completion
     document.body.style.opacity = '0';
@@ -422,12 +359,18 @@ function initLeafletStoreMap() {
         {
             name: 'The Silver Delight - Bahadurgarh',
             coords: [28.6916, 76.9352],
-            gmaps: 'https://www.google.com/maps/dir/?api=1&destination=28.6916,76.9352'
+            gmaps: 'https://www.google.com/maps/dir/?api=1&destination=28.6916,76.9352',
+            address: 'Shop No 5, Nahara - Nahari Rd, Model Town, Bahadurgarh, Haryana 124507',
+            phone: '+91 9728998849',
+            hours: 'Mon-Sun: 10AM-8PM'
         },
         {
             name: 'The Silver Delight - Panipat',
             coords: [29.3906, 76.9632],
-            gmaps: 'https://www.google.com/maps/dir/?api=1&destination=29.3906,76.9632'
+            gmaps: 'https://www.google.com/maps/dir/?api=1&destination=29.3906,76.9632',
+            address: 'Shop No. 3, 595 -L, Ring Rd, opp. to RedTape Showroom, Model Town, Panipat, Haryana 132103',
+            phone: '+91 9917344167',
+            hours: 'Mon-Sun: 10AM-8PM'
         }
     ];
 
@@ -440,6 +383,9 @@ function initLeafletStoreMap() {
         const marker = L.marker(store.coords).addTo(map);
         marker.bindPopup(
             `<b>${store.name}</b><br>` +
+            `${store.address}<br>` +
+            `📞 ${store.phone}<br>` +
+            `🕒 ${store.hours}<br>` +
             `<a href="${store.gmaps}" target="_blank" rel="noopener" style="color:#1976d2;font-weight:bold;">Get Directions</a>`
         );
     });
