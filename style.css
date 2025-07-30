@@ -843,62 +843,16 @@ select.form-control {
     background: var(--color-surface, #fff);
     border-radius: 999px;
     position: relative;
-    width: 44px;
-    height: 24px;
-    min-width: 44px;
-    min-height: 24px;
-    padding: 0 4px;
+    width: 60px;
+    height: 28px;
+    min-width: 60px;
+    min-height: 28px;
+    padding: 0 5px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
 }
 .theme-toggle-bar__icon {
-    z-index: 2;
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-}
-.theme-toggle-bar__slider {
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--color-primary, #1ec6d9);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    transform: translateY(-50%);
-    transition: left 0.3s;
-}
-[data-color-scheme="dark"] .theme-toggle-bar__slider {
-    left: 24px;
-}
-.theme-toggle-bar__icon--light {
-    opacity: 1;
-}
-[data-color-scheme="dark"] .theme-toggle-bar__icon--light {
-    opacity: 0.5;
-}
-.theme-toggle-bar__icon--dark {
-    opacity: 0.5;
-}
-[data-color-scheme="dark"] .theme-toggle-bar__icon--dark {
-    opacity: 1;
-}
-.theme-toggle-bar:active {
-    transform: scale(0.96);
-}
-.theme-toggle-bar:focus-visible {
-    box-shadow: 0 0 0 3px var(--color-focus-ring), 0 2px 8px rgba(0,0,0,0.08);
-}
-[data-color-scheme="dark"] .theme-toggle-bar {
-    background: var(--color-charcoal-800);
-}
-.theme-toggle-bar__icon {
-    font-size: 14px;
+    font-size: 18px;
     z-index: 2;
     display: flex;
     align-items: center;
@@ -907,6 +861,8 @@ select.form-control {
     filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
     opacity: 0.7;
     line-height: 1;
+    width: 22px;
+    height: 22px;
 }
 .theme-toggle-bar__icon--light {
     opacity: 1;
@@ -926,24 +882,31 @@ select.form-control {
 }
 .theme-toggle-bar__slider {
     position: absolute;
-    top: 55%;
-    left: 18px;
+    top: 50%;
+    left: 5px;
     transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     transition: left 0.3s var(--ease-standard), background 0.3s var(--ease-standard), box-shadow 0.3s;
     z-index: 1;
     border: 2px solid var(--color-surface);
-    width: 16px;
-    height: 16px;
 }
 [data-color-scheme="dark"] .theme-toggle-bar__slider {
-    left: 64px;
+    left: 33px;
     background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
     border: 2px solid var(--color-charcoal-800);
+}
+.theme-toggle-bar:active {
+    transform: scale(0.96);
+}
+.theme-toggle-bar:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-focus-ring), 0 2px 8px rgba(0,0,0,0.08);
+}
+[data-color-scheme="dark"] .theme-toggle-bar {
+    background: var(--color-charcoal-800);
 }
 
 /* Remove old theme-toggle button styles if not used elsewhere */
@@ -1386,15 +1349,11 @@ select.form-control {
 .map__placeholder {
     width: 100%;
     height: 400px;
-    background: linear-gradient(45deg, var(--color-bg-1), var(--color-bg-2));
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
 }
 
 .map__grid {

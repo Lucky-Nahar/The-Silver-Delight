@@ -13,24 +13,13 @@ class SilverDelightApp {
     init() {
         this.setupEventListeners();
         this.startHeroSlider();
-        this.updateThemeToggle();
     }
     
     setupEventListeners() {
         // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => this.toggleTheme());
-        }
-        
-        // Theme toggle bar logic
         const themeToggleBar = document.getElementById('themeToggleBar');
         if (themeToggleBar) {
-            themeToggleBar.addEventListener('click', function () {
-                const html = document.documentElement;
-                const current = html.getAttribute('data-color-scheme');
-                html.setAttribute('data-color-scheme', current === 'dark' ? 'light' : 'dark');
-            });
+            themeToggleBar.addEventListener('click', () => this.toggleTheme());
         }
         
         // Mobile menu toggle
@@ -88,20 +77,9 @@ class SilverDelightApp {
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
         html.setAttribute('data-color-scheme', newTheme);
-        this.updateThemeToggle();
         
         // Save theme preference
         localStorage.setItem('theme', newTheme);
-    }
-    
-    updateThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle?.querySelector('.theme-toggle__icon');
-        const currentTheme = document.documentElement.getAttribute('data-color-scheme');
-        
-        if (themeIcon) {
-            themeIcon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-        }
     }
     
     toggleMobileMenu() {
@@ -260,7 +238,6 @@ class SilverDelightApp {
         const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
         
         document.documentElement.setAttribute('data-color-scheme', initialTheme);
-        this.updateThemeToggle();
     }
 }
 
@@ -397,11 +374,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
     if (!localStorage.getItem('theme')) {
         const newTheme = e.matches ? 'dark' : 'light';
         document.documentElement.setAttribute('data-color-scheme', newTheme);
-        
-        const app = window.silverDelightApp;
-        if (app) {
-            app.updateThemeToggle();
-        }
     }
 });
 
